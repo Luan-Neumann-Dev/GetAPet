@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json());
 
 //RESOLVENDO CORS
-app.use(cors({credentials: true, origin: 'http//localhost:3000'}));
+app.use(cors({credentials: true, origin: 'http://localhost:5173'}));
 
 //PASTA PUBLICA
 app.use(express.static('public'));

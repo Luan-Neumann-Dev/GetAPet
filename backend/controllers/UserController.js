@@ -11,6 +11,7 @@ const getUserByToken = require('../helpers/get-user-by-token')
 module.exports = class UserController {
 
     static async register(req, res) {
+        debugger
 
         const { name, email, phone, password, confirmpassword } = req.body;
 
@@ -53,10 +54,10 @@ module.exports = class UserController {
 
         //CRIANDO O USUÁRIO:
         const user = new User({
-            name,
-            email,
-            phone,
-            passwordHash,
+            name: name,
+            email: email,
+            phone: phone,
+            password: passwordHash,
         })
 
         try {
@@ -130,7 +131,7 @@ module.exports = class UserController {
         res.status(200).json({ user })
     }
 
-    static async editUser(res, res) {
+    static async editUser(req, res) {
         //CHECANDO SE USUÁRIO EXISTE
         const token = getToken(req)
         const user = await getUserByToken(token)
