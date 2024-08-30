@@ -15,13 +15,12 @@ const MyAdoptions = () => {
     api
       .get('/pets/myadoptions', {
         headers: {
-          Authorization: `Bearer ${JSON.parse(token)}`
-        }
+          Authorization: `Bearer ${JSON.parse(token)}`,
+        },
       })
       .then((response) => {
         setPets(response.data.pets)
       })
-
   }, [token])
 
   return (
