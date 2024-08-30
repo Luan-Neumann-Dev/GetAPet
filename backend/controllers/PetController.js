@@ -198,16 +198,14 @@ module.exports = class PetController {
             updatedData.color = color
         }
 
-        if (images.length === 0) {
-            return res.status(422).json({ message: 'A imagem é obrigatória!' })
-        } else {
+        if (images.length > 0) {
             updatedData.images = [];
             images.map(image => {
                 updatedData.images.push(image.filename)
             })
         }
 
-        await Pet.findByIdAndUpdate(id, update);
+        await Pet.findByIdAndUpdate(id, updatedData);
         res.status(200).json({ message: "Pet atualizado com sucesso!" })
     }
 
@@ -222,7 +220,7 @@ module.exports = class PetController {
 
         //CHECANDO SE FOI O USUARIO QUE REGISTROU O PET
         const token = getToken(req)
-        const user = getUserByToken(token)
+        const user = await getUserByToken(token)
 
         if (pet.user._id.equals(user._id)) {
             res.status(422).json({ message: 'Você não pode agendar uma visita com o seu próprio pet!' })
@@ -246,7 +244,7 @@ module.exports = class PetController {
 
         await Pet.findByIdAndUpdate(id, pet)
 
-        res.stauts(200).json({ message: `A visita foi agendada com sucesso, entre em contato com ${pet.user.name} pelo telefone ${pet.user.phone}` })
+        res.status(200).json({ message: `A visita foi agendada com sucesso, entre em contato com ${pet.user.name} pelo telefone ${pet.user.phone}` })
     }
 
     static async concludeAdoption(req, res) {
@@ -271,7 +269,7 @@ module.exports = class PetController {
 
         await Pet.findByIdAndUpdate(id, pet)
 
-        res.stauts(200).json({
+        res.status(200).json({
             message: "Parabéns! O ciclo de adoção foi finalizado com sucesso"
         })
     }

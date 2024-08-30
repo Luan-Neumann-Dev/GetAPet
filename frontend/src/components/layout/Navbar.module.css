@@ -2,8 +2,8 @@
     display: flex;
     justify-content: space-between;
     padding: 1em 1.5em;
-    background-color: var(--second-bg-color);
-    color: var(--main-bg-color);
+    background-color: var(--dois);
+    color: var(--quatro);
 }
 
 .navbar_logo {
@@ -24,7 +24,7 @@
 
 .navbar li, .navbar a {
     text-decoration: none;
-    color: var(--main-bg-color);
+    color: var(--quatro);
     font-weight: bold;
     cursor: pointer;
     transition: .5s;
@@ -33,7 +33,7 @@
 }
 
 .navbar li:hover {
-    background-color: var(--main-bg-color);
+    background-color: var(--um);
 }
 .navbar li:hover > a{
     color: #fff;

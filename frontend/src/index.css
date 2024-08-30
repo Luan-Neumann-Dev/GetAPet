@@ -1,6 +1,9 @@
 :root {
-  --main-bg-color: #16479D;
-  --second-bg-color: #ffd400;
+  --um: #590313;
+  --dois: #45788C;
+  --tres: #F2D7B6;
+  --quatro: #F2A35E;
+  --cinco: #73482F;
 }
 
 * {
@@ -11,12 +14,12 @@
 }
 
 h1 {
-  color: var(--main-bg-color);
+  color: var(--cinco);
   margin-bottom: 1em;
   font-size: 2.1em;
 }
 
 .bold {
   font-weight: bold;
-  color: var(--main-bg-color);
+  color: var(--cinco);
 }
